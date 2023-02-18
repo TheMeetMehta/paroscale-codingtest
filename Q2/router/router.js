@@ -18,7 +18,7 @@ app.post('/createuser', async (req, res) => {
         }
     });
     try {
-        const data = user.save()
+        const data = await user.save()
         res.send(data);
     } catch (err) {
         res.status(500).send({
@@ -30,7 +30,7 @@ app.post('/createuser', async (req, res) => {
 // Get all users
 app.get('/getallusers', async (req, res) => {
     try {
-        const users = User.find()
+        const users = await User.find()
         res.send(users);
     } catch (err) {
         res.status(500).send({
